@@ -1,4 +1,4 @@
-@file:OptIn(ExperimentalMaterial3Api::class)
+@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3Api::class)
 
 package com.example.littlelemoncapstone
 
@@ -41,10 +41,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.littlelemoncapstone.ui.theme.LittleLemonColor
 
 @Composable
-fun Onboarding(){
+fun Onboarding(navController: NavController){
     val sharedPreferences =
         LocalContext.current.getSharedPreferences("UserData", Context.MODE_PRIVATE)
     var firstName by rememberSaveable{
@@ -153,6 +155,7 @@ fun Onboarding(){
                     sharedPreferences.edit().putString("lastName", lastName).apply()
                     sharedPreferences.edit().putString("email", email).apply()
                     sharedPreferences.edit().putBoolean("loggedIn", true).apply()
+                    navController.navigate(Home.route)
                     "Registration successful!"
                 }
             },
@@ -174,5 +177,5 @@ fun Onboarding(){
 @Preview
 @Composable
 fun OnboardingPreview(){
-    Onboarding()
+    Onboarding(rememberNavController())
 }
