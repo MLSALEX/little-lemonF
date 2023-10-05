@@ -42,11 +42,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.littlelemoncapstone.ui.theme.LittleLemonColor
 
 @Composable
-fun Onboarding(navController: NavController){
+fun Onboarding(navController: NavHostController){
     val sharedPreferences =
         LocalContext.current.getSharedPreferences("UserData", Context.MODE_PRIVATE)
     var firstName by rememberSaveable{
