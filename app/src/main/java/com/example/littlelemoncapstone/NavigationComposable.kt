@@ -8,7 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 
 @Composable
-fun NavigationComposable(navController: NavHostController) {
+fun NavigationComposable(navController: NavHostController, database: AppDatabase) {
 
     val sharedPreferences =
         LocalContext.current.getSharedPreferences("UserData", Context.MODE_PRIVATE)
@@ -27,7 +27,7 @@ fun NavigationComposable(navController: NavHostController) {
             Onboarding(navController)
         }
         composable(Home.route) {
-            Home(navController)
+            Home(navController, database = database)
         }
         composable(Profile.route) {
             Profile(navController)
