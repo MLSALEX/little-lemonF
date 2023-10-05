@@ -21,7 +21,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.semantics.Role.Companion.Image
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -57,21 +56,21 @@ fun Profile(navController: NavController){
                 .padding(horizontal = 40.dp),
             verticalArrangement = Arrangement.Top
         ) {
-            androidx.compose.material3.Text("Personal information", fontSize = 25.sp,)
+            Text("Personal information", fontSize = 25.sp)
 
             Spacer(modifier = Modifier.height(20.dp))
             Text("First Name", fontSize = 16.sp)
-            androidx.compose.material3.Text("${sharedPreferences.getString("firstName", "")} ",
+            Text("${sharedPreferences.getString("firstName", "")} ",
                 fontSize = 22.sp)
 
             Spacer(modifier = Modifier.height(15.dp))
-            androidx.compose.material3.Text("Last Name", fontSize = 16.sp)
-            androidx.compose.material3.Text("${sharedPreferences.getString("lastName", "")}",
+            Text("Last Name", fontSize = 16.sp)
+            Text("${sharedPreferences.getString("lastName", "")}",
                 fontSize = 22.sp)
 
             Spacer(modifier = Modifier.height(15.dp))
-            androidx.compose.material3.Text("Email", fontSize = 16.sp,)
-            androidx.compose.material3.Text("${sharedPreferences.getString("email", "")}",
+            Text("Email", fontSize = 16.sp)
+            Text("${sharedPreferences.getString("email", "")}",
                 fontSize = 22.sp
             )
             Spacer(modifier = Modifier.height(15.dp))

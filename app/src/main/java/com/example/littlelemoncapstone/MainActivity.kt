@@ -54,7 +54,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MyNavigation()
+                    MyNavigation(database= database)
                 }
             }
         }
@@ -68,7 +68,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MyNavigation() {
+fun MyNavigation(database: AppDatabase) {
     val navController = rememberNavController()
-    NavigationComposable(navController = navController)
+    NavigationComposable(navController = navController, database= database)
 }
