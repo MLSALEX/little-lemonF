@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
@@ -40,6 +41,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -88,23 +90,22 @@ fun Home(navController: NavController, database: AppDatabase) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
-        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(10.dp))
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 20.dp),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(8.dp) // to create space between the two images
+            horizontalArrangement = Arrangement.spacedBy(5.dp)
         ) {
             Box(
                 contentAlignment = Alignment.Center,
-                modifier = Modifier.weight(1f)  // the weight for the box
+                modifier = Modifier.weight(1f)
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.logo),
                     contentDescription = "Logo Image",
-                    contentScale = ContentScale.Fit,
-                    modifier = Modifier.width(200.dp)
+                    modifier = Modifier.width(400.dp)
                 )
             }
             Image(
@@ -115,7 +116,7 @@ fun Home(navController: NavController, database: AppDatabase) {
                     .clickable { navController.navigate(Profile.route) },
             )
         }
-        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(10.dp))
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -152,9 +153,9 @@ fun Home(navController: NavController, database: AppDatabase) {
                         contentDescription = "Hero Image",
                         modifier = Modifier
                             .width(200.dp)
-                            .aspectRatio(16f / 20f)  // set the aspectRatio to 16:20
+                            .aspectRatio(16f / 20f)
                             .clip(RoundedCornerShape(16.dp)),
-                        contentScale = ContentScale.FillBounds  // fill the bounds of the container
+                        contentScale = ContentScale.FillBounds
                     )
                 }
                 Spacer(modifier = Modifier.height(20.dp))
@@ -270,3 +271,4 @@ fun MenuItemsList(items: List<MenuItemRoom>) {
         )
     }
 }
+
